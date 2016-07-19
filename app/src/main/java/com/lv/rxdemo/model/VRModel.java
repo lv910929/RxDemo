@@ -1,6 +1,7 @@
 package com.lv.rxdemo.model;
 
 import com.lv.rxdemo.config.Constant;
+
 import java.io.Serializable;
 
 /**
