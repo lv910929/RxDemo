@@ -2,8 +2,10 @@ package com.lv.rxdemo.viewmodel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.databinding.BaseObservable;
 import android.databinding.BindingAdapter;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -52,7 +54,11 @@ public class ItemViewModel extends BaseObservable {
     }
 
     public void onItemClick(View view) {
-        mContext.startActivity(DesignActivity.launchDetail(view.getContext(), vrModel));
+        Intent intent = new Intent(mContext, DesignActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(DesignActivity.EXTRA_DESIGN, vrModel);
+        intent.putExtras(bundle);
+        mContext.startActivity(intent);
         ((Activity) mContext).overridePendingTransition(R.anim.slide_in, R.anim.slide_out_back);
     }
 

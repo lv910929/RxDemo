@@ -55,10 +55,10 @@ public class DesignAdapter extends RecyclerView.Adapter<DesignAdapter.ViewHolder
         }
 
         void bindDesign(VRModel vrModel) {
-            if (itemDesignBinding.getDesignViewModel() == null) {
-                itemDesignBinding.setDesignViewModel(new ItemViewModel(itemView.getContext(), vrModel));
+            if (itemDesignBinding.getItemViewModel()==null) {
+                itemDesignBinding.setItemViewModel(new ItemViewModel(itemView.getContext(), vrModel));
             } else {
-                itemDesignBinding.getDesignViewModel().setVrModel(vrModel);
+                itemDesignBinding.getItemViewModel().setVrModel(vrModel);
             }
         }
     }

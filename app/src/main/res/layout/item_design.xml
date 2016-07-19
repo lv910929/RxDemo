@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="designViewModel"
+            name="itemViewModel"
             type="com.lv.rxdemo.viewmodel.ItemViewModel" />
     </data>
 
@@ -16,7 +16,7 @@
         android:layout_marginBottom="@dimen/cardview_margin"
         android:layout_marginTop="@dimen/cardview_margin"
         android:foreground="?android:attr/selectableItemBackground"
-        android:onClick="@{designViewModel::onItemClick}">
+        android:onClick="@{itemViewModel::onItemClick}">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{designViewModel.designerPic}"/>
+                app:imageUrl="@{itemViewModel.designerPic}"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -52,14 +52,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLength="10"
-                            android:text="@{designViewModel.modelHomeApartmentDesignName}" />
+                            android:text="@{itemViewModel.modelHomeApartmentDesignName}" />
 
                         <TextView
                             android:id="@+id/text_construction_area"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="@{designViewModel.constructionArea}"
+                            android:text="@{itemViewModel.constructionArea}"
                             android:textColor="@color/grey400"
                             android:textSize="12sp" />
 
@@ -81,7 +81,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:text="@{designViewModel.apartmentLayout}"
+                            android:text="@{itemViewModel.apartmentLayout}"
                             android:textColor="@color/grey400"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -105,7 +105,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:text="@{designViewModel.budget}" />
+                            android:text="@{itemViewModel.budget}" />
 
                     </LinearLayout>
 

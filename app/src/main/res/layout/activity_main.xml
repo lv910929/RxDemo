@@ -13,6 +13,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey200"
         android:fitsSystemWindows="true">
 
         <include layout="@layout/toolbar_home" />
@@ -36,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:scrollbarStyle="outsideOverlay"
                 android:scrollbars="vertical"
                 app:visibility="@{mainViewModel.designList}"
                 tools:listitem="@layout/item_design" />

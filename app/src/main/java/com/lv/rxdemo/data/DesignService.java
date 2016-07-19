@@ -13,5 +13,5 @@ import rx.Observable;
 public interface DesignService {
 
     @GET(Constant.MODEL_DESIGN_URL)
-    Observable<ModelDesignData> getModelDesignData(@Query("cpn") int currentPageNo);
+    Observable<ModelDesignData> getModelDesignData(@Query("vb") int modelDesignConfig, @Query("cpn") int currentPageNo);
 }

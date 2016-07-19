@@ -26,9 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.DesignActivity"
-            android:theme="@style/MainTheme" />
+        <activity android:name=".view.DesignActivity" />
     </application>
 
 </manifest>

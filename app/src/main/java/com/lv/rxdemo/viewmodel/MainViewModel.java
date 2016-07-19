@@ -22,7 +22,7 @@ import rx.schedulers.Schedulers;
 /**
  * Created by Lv on 2016/7/18.
  */
-public class MainViewModel implements MainViewModelContact.ViewModel{
+public class MainViewModel implements MainViewModelContact.ViewModel {
 
     private static final String TAG = "MainActivity";
 
@@ -50,7 +50,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel{
 
     public void getData() {
         mSubscription = DesignFactory.getService()
-                .getModelDesignData(1)
+                .getModelDesignData(1, 1)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<ModelDesignData>() {
