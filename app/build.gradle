@@ -40,4 +40,6 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'com.github.tianzhijiexian:DBinding:1.0.0'
+    compile 'com.thefinestartist:finestwebview:1.2.7'
 }

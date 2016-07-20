@@ -48,10 +48,12 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
         dataProgress.set(View.VISIBLE);
     }
 
+    //获取列表数据
     public void getData() {
         mSubscription = DesignFactory.getService()
                 .getModelDesignData(1, 1)
                 .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<ModelDesignData>() {
                     @Override

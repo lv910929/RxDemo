@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RxDemo</string>
+
+    <string name="github_address">github地址</string>
+
+    <string name="my_email_address">1025202464@qq.com</string>
+
+    <string name="my_weibo">我的微博</string>
 </resources>

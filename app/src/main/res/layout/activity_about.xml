@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="designViewModel"
-            type="com.lv.rxdemo.viewmodel.DesignViewModel" />
+            name="adoutViewModel"
+            type="com.lv.rxdemo.viewmodel.AboutViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
@@ -24,19 +24,20 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:theme="@style/AppTheme.AppBarOverlay"
                 app:contentScrim="?colorPrimary"
-                app:expandedTitleGravity="center"
-                app:expandedTitleMarginBottom="@dimen/spacing_large"
+                app:expandedTitleMarginBottom="@dimen/spacing_huge"
                 app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.TitleSize"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:title="@{designViewModel.modelHomeApartmentDesignName}">
+                app:title="关于">
 
                 <ImageView
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
+                    android:background="@mipmap/about_bg"
                     android:scaleType="centerCrop"
                     android:tint="@color/colorPrimary"
-                    app:imageUrl="@{designViewModel.designerPic}" />
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -52,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="none"
-            app:behavior_overlapTop="50dp"
+            app:behavior_overlapTop="30dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -79,55 +80,91 @@
                         android:orientation="vertical">
 
                         <LinearLayout
+                            android:id="@+id/item_github_address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:onClick="@{adoutViewModel::onClickEvent}">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/ic_action_home" />
+                                android:src="@mipmap/ic_action_github" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.modelHomeApartmentDesignName}" />
+                                android:text="@{adoutViewModel.githubAddress}" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@mipmap/ic_action_calculator" />
+                                android:src="@mipmap/ic_action_share" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.constructionArea}" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:text=" m²"/>
-
+                                android:text="@{adoutViewModel.weiboAddress}" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/ic_action_mail" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="14dp"
+                                android:text="@{adoutViewModel.emailAddress}" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_large"
+                    android:layout_marginLeft="@dimen/spacing_large"
+                    android:layout_marginRight="@dimen/spacing_large"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="4dp"
+                    app:cardElevation="4dp"
+                    app:contentPaddingBottom="16dp"
+                    app:contentPaddingLeft="16dp"
+                    app:contentPaddingRight="16dp"
+                    app:contentPaddingTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -138,24 +175,31 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.apartmentLayout}" />
+                                android:text="使用的开源库" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                         </LinearLayout>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
-
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/float_btn_play"
+            android:id="@+id/float_btn_star"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{designViewModel::onClickEvent}"
-            android:src="@mipmap/ic_action_glasses"
+            android:onClick="@{adoutViewModel::onClickEvent}"
+            android:src="@drawable/ic_thumb_up_24dp"
             app:fabSize="normal"
             tools:ignore="RtlHardcoded" />
 

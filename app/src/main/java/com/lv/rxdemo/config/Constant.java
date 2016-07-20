@@ -11,4 +11,8 @@ public class Constant {
     //图片展示
     public static final String GETIMAGE_URL = "http://images.bdhome.cn/bdhomeimage/";
 
+    public static final String GITHUB_URL = "https://github.com/lv910929/RxDemo";
+
+    public static final String WEIBO_URL = "";
+
 }

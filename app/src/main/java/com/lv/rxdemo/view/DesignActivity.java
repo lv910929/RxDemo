@@ -37,7 +37,8 @@ public class DesignActivity extends AppCompatActivity implements DesignViewModel
         vrModel = (VRModel) bundle.getSerializable(EXTRA_DESIGN);
     }
 
-    protected void initToolBar(String title) {
+    //设置toolbar
+    private void initToolBar(String title) {
         setTitle(title);
         setSupportActionBar(activityDesignBinding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

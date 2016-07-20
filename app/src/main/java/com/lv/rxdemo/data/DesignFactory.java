@@ -19,6 +19,7 @@ public class DesignFactory {
 
     private static OkHttpClient client;
 
+    //设置okhttp超时时间
     public static OkHttpClient initOkHttp() {
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
