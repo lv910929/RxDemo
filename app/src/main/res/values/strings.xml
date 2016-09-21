@@ -13,4 +13,5 @@
     <string name="default_required_length_message_min">长度不能低于 %1$d.</string>
     <string name="default_required_length_message_max">长度不能超过 %1$d.</string>
     <string name="default_regex_validation_message">输入格式不正确.</string>
+    <string name="confirm_password_error">两次密码输入不一致</string>
 </resources>

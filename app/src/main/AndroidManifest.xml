@@ -31,6 +31,10 @@
         <activity
             android:name=".view.LoginActivity"
             android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".view.RegisterActivity"
+            android:theme="@style/AppTheme.Light"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".view.DesignActivity" />
         <activity android:name=".view.AboutActivity" />
         <activity
