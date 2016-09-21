@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lv.rxdemo.view.SplashActivity">
+
+    <com.lv.rxdemo.widget.ParticleView
+        android:id="@+id/particle_view_launch"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        pv:pv_background_color="@color/colorPrimary"
+        pv:pv_host_text="BDHOME"
+        pv:pv_host_text_anim_time="1000"
+        pv:pv_particle_text=".cn"
+        pv:pv_spread_anim_time="1000"
+        pv:pv_text_anim_time="1000"
+        pv:pv_text_color="@color/white" />
+
+</LinearLayout>

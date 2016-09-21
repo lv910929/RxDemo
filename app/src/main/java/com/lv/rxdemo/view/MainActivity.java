@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainViewModelCont
         super.onCreate(savedInstanceState);
 
         initDataBinding();
+        activityMainBinding.toolbar.setTitle("");
         setSupportActionBar(activityMainBinding.toolbar);
         setupRecyclerMain(activityMainBinding.recyclerMain);
     }

@@ -20,9 +20,6 @@ public class AboutViewModel {
 
     private String githubAddress;
     private String emailAddress;
-    private String weiboAddress;
-
-    private String backgroundImage;
 
     public String getGithubAddress() {
         return "github地址";
@@ -32,21 +29,13 @@ public class AboutViewModel {
         return "1025202464@qq.com";
     }
 
-    public String getWeiboAddress() {
-        return "我的微博";
-    }
-
-    public String getBackgroundImage() {
-        return backgroundImage;
-    }
-
     public void onClickEvent(View view) {
         switch (view.getId()){
             case R.id.float_btn_star:
-                IntentUtil.redirectWebView(context, Constant.GITHUB_URL);
+                IntentUtil.redirectFinestWebView(context, Constant.GITHUB_URL);
                 break;
             case R.id.item_github_address:
-                IntentUtil.redirectWebView(context, Constant.GITHUB_URL);
+                IntentUtil.redirectFinestWebView(context, Constant.GITHUB_URL);
                 break;
         }
     }

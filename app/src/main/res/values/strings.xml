@@ -6,4 +6,11 @@
     <string name="my_email_address">1025202464@qq.com</string>
 
     <string name="my_weibo">我的微博</string>
+
+    <!-- validation -->
+    <string name="default_required_validation_message">不能为空</string>
+    <string name="default_required_length_message_min_max">长度必须在 %1$d 和 %2$d 之间.</string>
+    <string name="default_required_length_message_min">长度不能低于 %1$d.</string>
+    <string name="default_required_length_message_max">长度不能超过 %1$d.</string>
+    <string name="default_regex_validation_message">输入格式不正确.</string>
 </resources>

@@ -1,6 +1,5 @@
 package com.lv.rxdemo.view;
 
-import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,9 +9,8 @@ import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityDesignBinding;
 import com.lv.rxdemo.model.VRModel;
 import com.lv.rxdemo.viewmodel.DesignViewModel;
-import com.lv.rxdemo.viewmodel.DesignViewModelContact;
 
-public class DesignActivity extends AppCompatActivity implements DesignViewModelContact.DesignView {
+public class DesignActivity extends AppCompatActivity {
 
     public static final String EXTRA_DESIGN = "EXTRA_DESIGN";
 
@@ -27,7 +25,7 @@ public class DesignActivity extends AppCompatActivity implements DesignViewModel
         super.onCreate(savedInstanceState);
         initData();
         activityDesignBinding = DataBindingUtil.setContentView(DesignActivity.this, R.layout.activity_design);
-        designViewModel = new DesignViewModel(vrModel);
+        designViewModel = new DesignViewModel(DesignActivity.this, vrModel);
         activityDesignBinding.setDesignViewModel(designViewModel);
         initToolBar(designViewModel.getModelHomeApartmentDesignName());
     }
@@ -48,11 +46,6 @@ public class DesignActivity extends AppCompatActivity implements DesignViewModel
                 onBackPressed();
             }
         });
-    }
-
-    @Override
-    public Context getContext() {
-        return DesignActivity.this;
     }
 
     @Override

@@ -8,7 +8,6 @@
         android:id="@+id/nav_about"
         android:orderInCategory="80"
         android:title="关于"
-        android:icon="@mipmap/ic_account_grey600_24dp"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="never" />
 
 </menu>

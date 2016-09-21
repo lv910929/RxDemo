@@ -19,7 +19,8 @@ public class DesignViewModel {
 
     private VRModel vrModel;
 
-    public DesignViewModel(VRModel vrModel) {
+    public DesignViewModel(Context context, VRModel vrModel) {
+        this.context = context;
         this.vrModel = vrModel;
     }
 
@@ -47,7 +48,7 @@ public class DesignViewModel {
     public void onClickEvent(View view) {
         switch (view.getId()){
             case R.id.float_btn_play:
-                IntentUtil.redirectWebView(context, vrModel.getModelHomeDesignVrPicAddress());
+                IntentUtil.redirectFinestWebView(context, vrModel.getModelHomeDesignVrPicAddress());
                 break;
         }
     }

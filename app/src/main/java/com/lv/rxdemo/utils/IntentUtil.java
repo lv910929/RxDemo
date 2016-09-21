@@ -11,7 +11,7 @@ import com.thefinestartist.finestwebview.FinestWebView;
  */
 public class IntentUtil {
 
-    public static void redirectWebView(Context context, String url) {
+    public static void redirectFinestWebView(Context context, String url) {
         new FinestWebView.Builder(context)
                 .theme(R.style.FinestWebViewTheme)
                 .toolbarScrollFlags(0)
