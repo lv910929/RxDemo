@@ -71,7 +71,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-
+    //验证注册表单
     private boolean validateRegister() {
         boolean flag = true;
         if (!validateTextPhone.validate()) flag = false;
@@ -111,7 +111,6 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             public void onTransitionResume(Transition transition) {
 
             }
-
 
         });
     }

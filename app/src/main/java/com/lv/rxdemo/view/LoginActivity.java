@@ -68,6 +68,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         }
     }
 
+    //验证登录表单
     private boolean validateLogin() {
         boolean flag = true;
         if (!validateTextPhone.validate()) flag = false;
