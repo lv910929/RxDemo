@@ -13,6 +13,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/commBackground"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.AppBarLayout
@@ -65,7 +66,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_large"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="?attr/commBackground"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="4dp"
                     app:contentPaddingBottom="16dp"
@@ -81,8 +82,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -93,15 +94,16 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.modelHomeApartmentDesignName}" />
+                                android:text="@{designViewModel.modelHomeApartmentDesignName}"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -112,22 +114,23 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.constructionArea}" />
+                                android:text="@{designViewModel.constructionArea}"
+                                android:textColor="?attr/commTextColor" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
-                                android:text=" m²"/>
-
+                                android:text=" m²"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:layout_marginTop="@dimen/spacing_medium">
+                            android:layout_marginTop="@dimen/spacing_medium"
+                            android:gravity="center_vertical">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -138,7 +141,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{designViewModel.apartmentLayout}" />
+                                android:text="@{designViewModel.apartmentLayout}"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 

@@ -37,7 +37,7 @@ public class ItemViewModel extends BaseObservable {
     }
 
     public String getConstructionArea() {
-        return vrModel.getConstructionArea() + "";
+        return vrModel.getConstructionArea() + " ㎡";
     }
 
     public String getApartmentLayout() {
@@ -45,7 +45,7 @@ public class ItemViewModel extends BaseObservable {
     }
 
     public String getBudget() {
-        return vrModel.getBudget() + "";
+        return "全案造价：" + vrModel.getBudget();
     }
 
     @BindingAdapter({"imageUrl"})

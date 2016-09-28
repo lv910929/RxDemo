@@ -2,14 +2,14 @@ package com.lv.rxdemo.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityAboutBinding;
+import com.lv.rxdemo.view.base.BaseActivity;
 import com.lv.rxdemo.viewmodel.AboutViewModel;
 
-public class AboutActivity extends AppCompatActivity{
+public class AboutActivity extends BaseActivity {
 
     private ActivityAboutBinding activityAboutBinding;
 
@@ -18,10 +18,16 @@ public class AboutActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData();
+        initTheme();
+        initDataBinding();
+        initToolBar("关于");
+    }
+    //初始化DataBinding
+    private void initDataBinding() {
         activityAboutBinding = DataBindingUtil.setContentView(AboutActivity.this, R.layout.activity_about);
         aboutViewModel = new AboutViewModel(AboutActivity.this);
         activityAboutBinding.setAdoutViewModel(aboutViewModel);
-        initToolBar("关于");
     }
 
     //设置toolbar

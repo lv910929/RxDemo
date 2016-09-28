@@ -6,9 +6,33 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="commBackground">@android:color/white</item>
+        <item name="commTextColor">@color/grey700</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--白天主题，此处直接和AppTheme一样-->
+    <style name="DayTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="commBackground">@android:color/white</item>
+        <item name="commTextColor">@color/grey700</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!--夜间主题-->
+    <style name="NightTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/grey700</item>
+        <item name="colorPrimaryDark">@color/grey700</item>
+        <item name="colorAccent">@color/grey700</item>
+        <item name="commBackground">@color/grey700</item>
+        <item name="commTextColor">@color/color8A9599</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
@@ -38,9 +62,13 @@
         <item name="android:gravity">center_vertical|center_horizontal</item>
     </style>
 
-    <style name="CollapsingTextAppearance" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title"/>
+    <style name="CollapsingTextAppearance" parent="Base.TextAppearance.AppCompat.Widget.ActionBar.Title" />
 
-    <style name="CollapsingTextAppearance.TitleSize" >
+    <style name="CollapsingTextAppearance.TitleSize">
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="counterOverflow">
+        <item name="android:textColor">@android:color/holo_red_light</item>
     </style>
 </resources>

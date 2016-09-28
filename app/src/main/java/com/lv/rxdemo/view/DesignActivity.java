@@ -2,15 +2,15 @@ package com.lv.rxdemo.view;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityDesignBinding;
 import com.lv.rxdemo.model.VRModel;
+import com.lv.rxdemo.view.base.BaseActivity;
 import com.lv.rxdemo.viewmodel.DesignViewModel;
 
-public class DesignActivity extends AppCompatActivity {
+public class DesignActivity extends BaseActivity {
 
     public static final String EXTRA_DESIGN = "EXTRA_DESIGN";
 
@@ -24,15 +24,23 @@ public class DesignActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initData();
-        activityDesignBinding = DataBindingUtil.setContentView(DesignActivity.this, R.layout.activity_design);
-        designViewModel = new DesignViewModel(DesignActivity.this, vrModel);
-        activityDesignBinding.setDesignViewModel(designViewModel);
+        initTheme();
+        initDataBinding();
         initToolBar(designViewModel.getModelHomeApartmentDesignName());
     }
 
-    private void initData() {
+    @Override
+    protected void initData() {
+        super.initData();
         Bundle bundle = this.getIntent().getExtras();
         vrModel = (VRModel) bundle.getSerializable(EXTRA_DESIGN);
+    }
+
+    //初始化DataBinding
+    private void initDataBinding() {
+        activityDesignBinding = DataBindingUtil.setContentView(DesignActivity.this, R.layout.activity_design);
+        designViewModel = new DesignViewModel(DesignActivity.this, vrModel);
+        activityDesignBinding.setDesignViewModel(designViewModel);
     }
 
     //设置toolbar

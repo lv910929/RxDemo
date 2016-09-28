@@ -10,6 +10,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.lv.rxdemo.R;
+import com.lv.rxdemo.utils.DayNightHelper;
 import com.lv.rxdemo.utils.HideInputUtils;
 
 /**
@@ -17,11 +18,25 @@ import com.lv.rxdemo.utils.HideInputUtils;
  */
 public class BaseActivity extends AppCompatActivity {
 
+    protected DayNightHelper mDayNightHelper;
+
     protected Toolbar toolbar;
     protected TextView titleText;
 
     protected void initUI() {
 
+    }
+
+    protected void initData() {
+        mDayNightHelper = new DayNightHelper(this);
+    }
+
+    protected void initTheme() {
+        if (mDayNightHelper.isDay()) {
+            setTheme(R.style.DayTheme);
+        } else {
+            setTheme(R.style.NightTheme);
+        }
     }
 
     //设置通用的toolbar
@@ -41,6 +56,8 @@ public class BaseActivity extends AppCompatActivity {
             });
         }
     }
+
+
 
     //隐藏软键盘
     protected void hideKeyboard() {

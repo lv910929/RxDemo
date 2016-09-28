@@ -11,31 +11,26 @@
     </data>
 
     <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/grey200"
+        android:background="?attr/commBackground"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:contentScrim="?colorPrimary">
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorAccent"
                 android:theme="@style/AppTheme.AppBarOverlay"
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="16dp"
-                    android:layout_gravity="center"
-                    android:scaleType="fitCenter"
-                    android:src="@mipmap/ic_title" />
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.AppBarLayout>
@@ -49,7 +44,6 @@
             tools:context=".view.MainActivity">
 
             <ProgressBar
-                android:id="@+id/progress_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:visibility="@{mainViewModel.dataProgress}" />
@@ -59,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:padding="3dp"
                 android:scrollbarStyle="outsideOverlay"
                 android:scrollbars="vertical"
                 app:visibility="@{mainViewModel.designList}"

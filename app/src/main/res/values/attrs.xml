@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="commBackground" format="color" />
+    <attr name="commTextColor" format="color" />
+    <attr name="colorPrimary" format="color" />
+
     <declare-styleable name="ParticleView">
         <attr name="pv_host_text" format="string"></attr>
         <attr name="pv_host_text_size" format="dimension"></attr>
@@ -14,19 +18,19 @@
     </declare-styleable>
 
     <declare-styleable name="ValidatedInputTextLayout">
-        <attr name="autoValidate" format="boolean"/>
-        <attr name="autoTrim" format="boolean"/>
-        <attr name="isRequired" format="boolean"/>
-        <attr name="requiredValidationMessage" format="string"/>
+        <attr name="autoValidate" format="boolean" />
+        <attr name="autoTrim" format="boolean" />
+        <attr name="isRequired" format="boolean" />
+        <attr name="requiredValidationMessage" format="string" />
         <attr name="minLength" format="integer">
-            <enum name="zero" value="0"/>
+            <enum name="zero" value="0" />
         </attr>
         <attr name="maxLength" format="integer">
-            <enum name="indefinite" value="-1"/>
+            <enum name="indefinite" value="-1" />
         </attr>
-        <attr name="lengthValidationMessage" format="string"/>
-        <attr name="regex" format="string"/>
-        <attr name="regexValidationMessage" format="string"/>
+        <attr name="lengthValidationMessage" format="string" />
+        <attr name="regex" format="string" />
+        <attr name="regexValidationMessage" format="string" />
     </declare-styleable>
 
 </resources>

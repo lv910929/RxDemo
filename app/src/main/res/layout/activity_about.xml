@@ -13,6 +13,7 @@
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/commBackground"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.AppBarLayout
@@ -66,7 +67,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_large"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="?attr/commBackground"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="4dp"
                     app:contentPaddingBottom="16dp"
@@ -96,7 +97,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{adoutViewModel.githubAddress}" />
+                                android:text="@{adoutViewModel.githubAddress}"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 
@@ -115,7 +117,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="@{adoutViewModel.emailAddress}" />
+                                android:text="@{adoutViewModel.emailAddress}"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 
@@ -128,7 +131,7 @@
                     android:layout_marginBottom="@dimen/spacing_large"
                     android:layout_marginLeft="@dimen/spacing_large"
                     android:layout_marginRight="@dimen/spacing_large"
-                    app:cardBackgroundColor="@android:color/white"
+                    app:cardBackgroundColor="?attr/commBackground"
                     app:cardCornerRadius="4dp"
                     app:cardElevation="4dp"
                     app:contentPaddingBottom="16dp"
@@ -156,7 +159,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="14dp"
-                                android:text="使用的开源库" />
+                                android:text="使用的开源库"
+                                android:textColor="?attr/commTextColor" />
 
                         </LinearLayout>
 

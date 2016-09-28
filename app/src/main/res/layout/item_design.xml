@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/cardview_margin"
         android:layout_marginTop="@dimen/cardview_margin"
-        android:foreground="?android:attr/selectableItemBackground"
+        app:cardBackgroundColor="?attr/commBackground"
         android:onClick="@{itemViewModel::onItemClick}">
 
         <LinearLayout
@@ -28,12 +28,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{itemViewModel.designerPic}"/>
+                app:imageUrl="@{itemViewModel.designerPic}" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:gravity="center_vertical"
                 android:padding="10dp">
 
@@ -52,7 +51,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLength="10"
-                            android:text="@{itemViewModel.modelHomeApartmentDesignName}" />
+                            android:text="@{itemViewModel.modelHomeApartmentDesignName}"
+                            android:textColor="?attr/commTextColor" />
 
                         <TextView
                             android:id="@+id/text_construction_area"
@@ -60,21 +60,14 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
                             android:text="@{itemViewModel.constructionArea}"
-                            android:textColor="@color/grey400"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=" m²"
-                            android:textColor="@color/grey400"
+                            android:textColor="?attr/commTextColor"
                             android:textSize="12sp" />
 
                         <View
                             android:layout_width="0.1dp"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="5dp"
-                            android:background="@color/grey400" />
+                            android:textColor="?attr/commTextColor" />
 
                         <TextView
                             android:id="@+id/text_apartment_layout"
@@ -82,7 +75,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:text="@{itemViewModel.apartmentLayout}"
-                            android:textColor="@color/grey400"
+                            android:textColor="?attr/commTextColor"
                             android:textSize="12sp" />
                     </LinearLayout>
 
@@ -94,18 +87,12 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="全案造价："
-                            android:textSize="12sp" />
-
-                        <TextView
                             android:id="@+id/text_budget_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:text="@{itemViewModel.budget}" />
+                            android:text="@{itemViewModel.budget}"
+                            android:textColor="?attr/commTextColor" />
 
                     </LinearLayout>
 
