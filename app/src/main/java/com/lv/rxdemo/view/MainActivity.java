@@ -22,12 +22,16 @@ import android.widget.TextView;
 
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityMainBinding;
+import com.lv.rxdemo.model.MessageEvent;
 import com.lv.rxdemo.model.VRModel;
-import com.lv.rxdemo.utils.AppUtils;
 import com.lv.rxdemo.utils.DayNight;
 import com.lv.rxdemo.view.base.BaseActivity;
 import com.lv.rxdemo.viewmodel.MainViewModel;
 import com.lv.rxdemo.viewmodel.MainViewModelContact;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -46,6 +50,7 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EventBus.getDefault().register(this);
         initData();
         initTheme();
         initDataBinding();
@@ -106,12 +111,6 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
                 break;
             case R.id.nav_about:
                 startActivity(new Intent(MainActivity.this, AboutActivity.class));
-                overridePendingTransition(R.anim.slide_in, R.anim.slide_out_back);
-                break;
-            case R.id.nav_quit:
-                AppUtils.setHasLogin(false);
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-                finish();
                 overridePendingTransition(R.anim.slide_in, R.anim.slide_out_back);
                 break;
         }
@@ -241,9 +240,19 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
         return bitmap;
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEvent(MessageEvent messageEvent) {
+        switch (messageEvent.getWhat()) {
+            case 1://关闭
+                finish();
+                break;
+        }
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         mainViewModel.destroy();
+        EventBus.getDefault().unregister(this);
     }
 }

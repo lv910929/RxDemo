@@ -8,8 +8,8 @@ android {
         applicationId "com.lv.rxdemo"
         minSdkVersion 21
         targetSdkVersion 24
-        versionCode 2
-        versionName "1.1"
+        versionCode 3
+        versionName "1.2"
     }
     buildTypes {
         release {
@@ -41,8 +41,9 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
 
+    compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.thefinestartist:finestwebview:1.2.7'
     compile 'com.bigkoo:svprogresshud:1.0.2'
-    compile 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
     compile 'com.github.paolorotolo:appintro:4.0.0'
+    compile 'com.getbase:floatingactionbutton:1.10.1'
 }

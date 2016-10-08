@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.lv.rxdemo.R;
 import com.lv.rxdemo.data.DesignFactory;
 import com.lv.rxdemo.model.ModelDesignData;
 import com.lv.rxdemo.model.VRModel;
@@ -84,6 +85,15 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
                         }
                     }
                 });
+    }
+
+    //点击事件
+    public void onClickEvent(View view) {
+        switch (view.getId()){
+            case R.id.float_btn_main:
+
+                break;
+        }
     }
 
     @Override

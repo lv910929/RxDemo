@@ -158,10 +158,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{designViewModel::onClickEvent}"
             android:src="@mipmap/ic_action_glasses"
             app:fabSize="normal"
             tools:ignore="RtlHardcoded" />
+
+        <TextView
+            android:id="@+id/text_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffff"
+            android:visibility="gone" />
 
     </android.support.design.widget.CoordinatorLayout>
 

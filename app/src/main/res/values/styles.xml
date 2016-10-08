@@ -48,12 +48,16 @@
         <item name="colorControlHighlight">@color/white</item>
     </style>
 
+    <style name="AccentButton" parent="Widget.AppCompat.Button">
+        <item name="colorButtonNormal">?attr/colorPrimary</item>
+    </style>
+
     <!-- ToolBar -->
     <style name="ToolBarStyle" parent="Widget.AppCompat.Toolbar">
         <item name="actionMenuTextColor">@color/grey700</item>
     </style>
 
-    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
 
     <style name="AppTheme.Button.Borderless" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
