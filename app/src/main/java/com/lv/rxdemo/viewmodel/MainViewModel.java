@@ -29,6 +29,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
 
     public ObservableInt dataProgress;
     public ObservableInt designList;
+    public ObservableInt designButton;
 
     private Context mContext;
     private Subscription mSubscription;
@@ -39,6 +40,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
         this.mContext = mContext;
         dataProgress = new ObservableInt(View.GONE);
         designList = new ObservableInt(View.VISIBLE);
+        designButton = new ObservableInt(View.VISIBLE);
 
         initializeViews();
         getData();
@@ -46,6 +48,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
 
     public void initializeViews() {
         designList.set(View.GONE);
+        designButton.set(View.GONE);
         dataProgress.set(View.VISIBLE);
     }
 
@@ -67,6 +70,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
                         Log.e(TAG, e.getMessage());
                         dataProgress.set(View.GONE);
                         designList.set(View.VISIBLE);
+                        designButton.set(View.VISIBLE);
                         Toast.makeText(mContext, "服务器异常！", Toast.LENGTH_SHORT).show();
                     }
 
@@ -74,6 +78,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
                     public void onNext(ModelDesignData modelDesignData) {
                         dataProgress.set(View.GONE);
                         designList.set(View.VISIBLE);
+                        designButton.set(View.VISIBLE);
                         if (modelDesignData != null && modelDesignData.getModelHomeDesigns() != null) {
                             List<VRModel> vrModels = modelDesignData.getModelHomeDesigns().getData();
                             if (vrModels == null) {
@@ -89,7 +94,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
 
     //点击事件
     public void onClickEvent(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.float_btn_main:
 
                 break;

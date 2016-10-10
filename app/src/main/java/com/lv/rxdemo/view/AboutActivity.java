@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.lv.rxdemo.R;
+import com.lv.rxdemo.config.Constant;
 import com.lv.rxdemo.databinding.ActivityAboutBinding;
+import com.lv.rxdemo.utils.IntentUtil;
 import com.lv.rxdemo.view.base.BaseActivity;
 import com.lv.rxdemo.viewmodel.AboutViewModel;
 
@@ -22,7 +24,9 @@ public class AboutActivity extends BaseActivity {
         initTheme();
         initDataBinding();
         initToolBar("关于");
+        setFloatingMenu();
     }
+
     //初始化DataBinding
     private void initDataBinding() {
         activityAboutBinding = DataBindingUtil.setContentView(AboutActivity.this, R.layout.activity_about);
@@ -43,9 +47,37 @@ public class AboutActivity extends BaseActivity {
         });
     }
 
+    //设置FloatingActionMenu
+    private void setFloatingMenu() {
+        activityAboutBinding.menuLabelsRight.setClosedOnTouchOutside(true);
+        activityAboutBinding.buttonPraise.setOnClickListener(clickListener);
+        activityAboutBinding.buttonStar.setOnClickListener(clickListener);
+        activityAboutBinding.buttonComment.setOnClickListener(clickListener);
+    }
+
+    private View.OnClickListener clickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.button_praise:
+                    IntentUtil.redirectFinestWebView(AboutActivity.this, Constant.GITHUB_URL);
+                    break;
+                case R.id.button_star:
+                    IntentUtil.redirectFinestWebView(AboutActivity.this, Constant.MY_GITHUB_URL);
+                    break;
+                case R.id.button_comment:
+                    IntentUtil.redirectFinestWebView(AboutActivity.this, Constant.GITHUB_URL);
+                    break;
+            }
+        }
+    };
+
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_back, R.anim.slide_out);
+        if (activityAboutBinding.menuLabelsRight.isOpened()) {//说明是打开的
+            activityAboutBinding.menuLabelsRight.close(true);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

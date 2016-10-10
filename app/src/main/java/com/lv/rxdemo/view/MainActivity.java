@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -132,6 +133,8 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
 
         activityMainBinding.layoutMain.setBackgroundResource(background.resourceId);
         activityMainBinding.toolbar.setBackgroundResource(primary.resourceId);
+        activityMainBinding.floatBtnMain.setBackgroundResource(primary.resourceId);
+
         int childCount = activityMainBinding.recyclerMain.getChildCount();
         for (int childIndex = 0; childIndex < childCount; childIndex++) {
             ViewGroup childView = (ViewGroup) activityMainBinding.recyclerMain.getChildAt(childIndex);
@@ -246,6 +249,21 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
             case 1://关闭
                 finish();
                 break;
+        }
+    }
+
+    private long firstTime;
+
+    @Override
+    public void onBackPressed() {
+        long secondTime = System.currentTimeMillis();
+        if (secondTime - firstTime > 2000) {
+            Snackbar sb = Snackbar.make(activityMainBinding.layoutMain, "再按一次退出", Snackbar.LENGTH_SHORT);
+            sb.getView().setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            sb.show();
+            firstTime = secondTime;
+        } else {
+            finish();
         }
     }
 

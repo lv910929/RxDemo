@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -138,16 +139,44 @@
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/float_btn_star"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu_labels_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:onClick="@{adoutViewModel::onClickEvent}"
-            android:src="@drawable/ic_thumb_up_24dp"
-            app:fabSize="normal"
-            tools:ignore="RtlHardcoded" />
+            android:padding="16dp"
+            fab:menu_backgroundColor="#ccffffff"
+            fab:menu_colorNormal="?attr/colorPrimary"
+            fab:menu_colorPressed="?attr/colorPrimary"
+            fab:menu_labels_ellipsize="end"
+            fab:menu_labels_position="left"
+            fab:menu_labels_singleLine="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/button_praise"
+                style="@style/MenuButtonsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                fab:fab_label="点赞" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/button_star"
+                style="@style/MenuButtonsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fab_star"
+                fab:fab_label="关注" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/button_comment"
+                style="@style/MenuButtonsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_progress"
+                fab:fab_label="吐槽" />
+
+        </com.github.clans.fab.FloatingActionMenu>
 
     </android.support.design.widget.CoordinatorLayout>
 

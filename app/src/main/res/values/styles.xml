@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -75,4 +75,11 @@
     <style name="counterOverflow">
         <item name="android:textColor">@android:color/holo_red_light</item>
     </style>
+
+    <style name="MenuButtonsStyle">
+        <item name="fab_size">mini</item>
+        <item name="fab_colorNormal">?attr/colorPrimary</item>
+        <item name="fab_colorPressed">?attr/colorPrimary</item>
+    </style>
+
 </resources>

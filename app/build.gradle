@@ -45,5 +45,5 @@ dependencies {
     compile 'com.thefinestartist:finestwebview:1.2.7'
     compile 'com.bigkoo:svprogresshud:1.0.2'
     compile 'com.github.paolorotolo:appintro:4.0.0'
-    compile 'com.getbase:floatingactionbutton:1.10.1'
+    compile 'com.github.clans:fab:1.6.4'
 }

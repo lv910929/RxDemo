@@ -153,14 +153,15 @@
         </android.support.v4.widget.NestedScrollView>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/float_btn_play"
+            android:id="@+id/float_btn_design"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@mipmap/ic_action_glasses"
-            app:fabSize="normal"
-            tools:ignore="RtlHardcoded" />
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/ic_thumb_up_24dp"
+            app:backgroundTint="?attr/colorPrimary"
+            app:fabSize="normal" />
 
         <TextView
             android:id="@+id/text_empty"

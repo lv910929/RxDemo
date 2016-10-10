@@ -38,9 +38,6 @@ public class AboutViewModel {
 
     public void onClickEvent(View view) {
         switch (view.getId()) {
-            case R.id.float_btn_star:
-                IntentUtil.redirectFinestWebView(context, Constant.GITHUB_URL);
-                break;
             case R.id.item_github_address:
                 IntentUtil.redirectFinestWebView(context, Constant.GITHUB_URL);
                 break;
