@@ -66,15 +66,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:layout_marginBottom="24dp"
             android:onClick="@{mainViewModel::onClickEvent}"
             android:src="@drawable/ic_thumb_up_24dp"
             app:backgroundTint="?attr/colorPrimary"
             app:fabSize="normal"
             app:layout_anchor="@id/recycler_main"
             app:layout_anchorGravity="bottom|end"
-            app:visibility="@{mainViewModel.designButton}"
-            app:layout_behavior="com.lv.rxdemo.widget.ScrollAwareBehavior" />
+            app:layout_behavior="com.lv.rxdemo.widget.ScrollAwareBehavior"
+            app:visibility="@{mainViewModel.designButton}" />
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

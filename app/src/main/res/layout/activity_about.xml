@@ -26,6 +26,7 @@
             <android.support.design.widget.CollapsingToolbarLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
+                android:fitsSystemWindows="true"
                 android:theme="@style/AppTheme.AppBarOverlay"
                 app:contentScrim="?colorPrimary"
                 app:expandedTitleMarginBottom="@dimen/spacing_huge"
@@ -34,12 +35,13 @@
                 app:title="关于">
 
                 <ImageView
-                    android:layout_width="fill_parent"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@mipmap/about_bg"
+                    android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    android:tint="@color/colorPrimary"
-                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+                    android:src="@mipmap/about_bg"
+                    app:layout_collapseParallaxMultiplier="0.6"
+                    app:layout_collapseMode="parallax" />
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"

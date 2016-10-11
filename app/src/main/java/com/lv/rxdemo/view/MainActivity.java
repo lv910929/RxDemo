@@ -39,6 +39,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter;
+
 
 public class MainActivity extends BaseActivity implements MainViewModelContact.MainView {
 
@@ -61,16 +63,16 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
     }
 
     //初始化DataBinding
-    private void initDataBinding() {
+    protected void initDataBinding() {
         activityMainBinding = DataBindingUtil.setContentView(MainActivity.this, R.layout.activity_main);
         mainViewModel = new MainViewModel(mainView, getContext());
         activityMainBinding.setMainViewModel(mainViewModel);
     }
 
     private void setupRecyclerMain(RecyclerView recyclerMain) {
-        designAdapter = new DesignAdapter();
-        recyclerMain.setAdapter(designAdapter);
         recyclerMain.setLayoutManager(new LinearLayoutManager(this));
+        designAdapter = new DesignAdapter();
+        recyclerMain.setAdapter(new SlideInBottomAnimationAdapter(designAdapter));//添加adapter滑动动画
     }
 
     @Override
@@ -133,7 +135,6 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
 
         activityMainBinding.layoutMain.setBackgroundResource(background.resourceId);
         activityMainBinding.toolbar.setBackgroundResource(primary.resourceId);
-        activityMainBinding.floatBtnMain.setBackgroundResource(primary.resourceId);
 
         int childCount = activityMainBinding.recyclerMain.getChildCount();
         for (int childIndex = 0; childIndex < childCount; childIndex++) {

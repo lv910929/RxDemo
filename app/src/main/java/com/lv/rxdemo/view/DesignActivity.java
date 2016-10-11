@@ -9,10 +9,10 @@ import android.view.animation.AlphaAnimation;
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityDesignBinding;
 import com.lv.rxdemo.model.VRModel;
-import com.lv.rxdemo.view.base.BaseActivity;
+import com.lv.rxdemo.view.base.SwipeBackActivity;
 import com.lv.rxdemo.viewmodel.DesignViewModel;
 
-public class DesignActivity extends BaseActivity {
+public class DesignActivity extends SwipeBackActivity {
 
     public static final String EXTRA_DESIGN = "EXTRA_DESIGN";
 
@@ -42,10 +42,11 @@ public class DesignActivity extends BaseActivity {
     }
 
     //初始化DataBinding
-    private void initDataBinding() {
+    protected void initDataBinding() {
         activityDesignBinding = DataBindingUtil.setContentView(DesignActivity.this, R.layout.activity_design);
         designViewModel = new DesignViewModel(DesignActivity.this, vrModel);
         activityDesignBinding.setDesignViewModel(designViewModel);
+        setStatusTransparent();
     }
 
     //设置toolbar

@@ -2,13 +2,13 @@ package com.lv.rxdemo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.utils.AppUtils;
+import com.lv.rxdemo.view.base.BaseActivity;
 import com.lv.rxdemo.widget.ParticleView;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
 
     private ParticleView particleViewLaunch;
 

@@ -8,10 +8,10 @@ import com.lv.rxdemo.R;
 import com.lv.rxdemo.config.Constant;
 import com.lv.rxdemo.databinding.ActivityAboutBinding;
 import com.lv.rxdemo.utils.IntentUtil;
-import com.lv.rxdemo.view.base.BaseActivity;
+import com.lv.rxdemo.view.base.SwipeBackActivity;
 import com.lv.rxdemo.viewmodel.AboutViewModel;
 
-public class AboutActivity extends BaseActivity {
+public class AboutActivity extends SwipeBackActivity {
 
     private ActivityAboutBinding activityAboutBinding;
 
@@ -28,10 +28,11 @@ public class AboutActivity extends BaseActivity {
     }
 
     //初始化DataBinding
-    private void initDataBinding() {
+    protected void initDataBinding() {
         activityAboutBinding = DataBindingUtil.setContentView(AboutActivity.this, R.layout.activity_about);
         aboutViewModel = new AboutViewModel(AboutActivity.this);
         activityAboutBinding.setAdoutViewModel(aboutViewModel);
+        setStatusTransparent();
     }
 
     //设置toolbar

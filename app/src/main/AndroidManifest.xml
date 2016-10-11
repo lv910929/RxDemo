@@ -36,8 +36,12 @@
             android:name=".view.RegisterActivity"
             android:theme="@style/AppTheme.Light"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".view.DesignActivity" />
-        <activity android:name=".view.AboutActivity" />
+        <activity
+            android:name=".view.DesignActivity"
+            android:theme="@style/AppTheme.TransparentActivity" />
+        <activity
+            android:name=".view.AboutActivity"
+            android:theme="@style/AppTheme.TransparentActivity" />
         <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"

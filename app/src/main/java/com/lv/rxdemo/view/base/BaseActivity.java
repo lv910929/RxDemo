@@ -1,14 +1,16 @@
 package com.lv.rxdemo.view.base;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.jaeger.library.StatusBarUtil;
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.utils.DayNightHelper;
 import com.lv.rxdemo.utils.HideInputUtils;
@@ -23,8 +25,27 @@ public class BaseActivity extends AppCompatActivity {
     protected Toolbar toolbar;
     protected TextView titleText;
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     protected void initUI() {
 
+    }
+
+    protected void initDataBinding(){
+
+    }
+
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary));
+        StatusBarUtil.setTranslucent(this, 60);
+    }
+
+    //设置状态栏透明
+    protected void setStatusTransparent() {
+        StatusBarUtil.setTransparent(this);
     }
 
     protected void initData() {
@@ -40,12 +61,12 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     //设置通用的toolbar
-    protected void initToolBar(String title,boolean needBack) {
+    protected void initToolBar(String title, boolean needBack) {
         toolbar = (Toolbar) findViewById(R.id.toolbar_comm);
         titleText = (TextView) findViewById(R.id.text_title);
         setTitle("");
         titleText.setText(title);
-        if (needBack){
+        if (needBack) {
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -57,8 +78,6 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-
-
     //隐藏软键盘
     protected void hideKeyboard() {
         View view = getCurrentFocus();
@@ -66,26 +85,6 @@ public class BaseActivity extends AppCompatActivity {
             ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
                     hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
         }
-    }
-
-    protected void showProgress(ProgressBar progressBar, View contentView) {
-        progressBar.setVisibility(View.VISIBLE);
-        contentView.setVisibility(View.GONE);
-    }
-
-    protected void hideProgress(ProgressBar progressBar, View contentView) {
-        progressBar.setVisibility(View.GONE);
-        contentView.setVisibility(View.VISIBLE);
-    }
-
-    protected void showView(View showView, View hideView) {
-        showView.setVisibility(View.VISIBLE);
-        hideView.setVisibility(View.GONE);
-    }
-
-    protected void hideView(View showView, View hideView) {
-        showView.setVisibility(View.GONE);
-        hideView.setVisibility(View.VISIBLE);
     }
 
     /**
@@ -115,4 +114,5 @@ public class BaseActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.slide_in_back, R.anim.slide_out);
     }
+
 }

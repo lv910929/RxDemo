@@ -46,4 +46,7 @@ dependencies {
     compile 'com.bigkoo:svprogresshud:1.0.2'
     compile 'com.github.paolorotolo:appintro:4.0.0'
     compile 'com.github.clans:fab:1.6.4'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
+    compile 'com.jude:swipebackhelper:3.1.2'
+    compile 'com.jaeger.statusbaruitl:library:1.2.5'
 }
