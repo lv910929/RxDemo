@@ -61,7 +61,19 @@
                 tools:listitem="@layout/item_design" />
         </LinearLayout>
 
-        <android.support.design.widget.FloatingActionButton
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/float_btn_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:onClick="@{mainViewModel::onClickEvent}"
+            android:src="@drawable/ic_thumb_up_24dp"
+            app:visibility="@{mainViewModel.designButton}"
+            fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorPressed="?attr/colorPrimary" />
+
+        <!--<android.support.design.widget.FloatingActionButton
             android:id="@+id/float_btn_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,7 +85,7 @@
             app:layout_anchor="@id/recycler_main"
             app:layout_anchorGravity="bottom|end"
             app:layout_behavior="com.lv.rxdemo.widget.ScrollAwareBehavior"
-            app:visibility="@{mainViewModel.designButton}" />
+            app:visibility="@{mainViewModel.designButton}" />-->
 
     </android.support.design.widget.CoordinatorLayout>
 </layout>

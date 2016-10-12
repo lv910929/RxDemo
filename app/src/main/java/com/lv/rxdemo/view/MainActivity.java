@@ -50,6 +50,8 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
 
     private DesignAdapter designAdapter;
 
+    private int mPreviousVisibleItem;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +61,7 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
         initDataBinding();
         activityMainBinding.toolbar.setTitle("BDHOME");
         setSupportActionBar(activityMainBinding.toolbar);
-        setupRecyclerMain(activityMainBinding.recyclerMain);
+        setupRecyclerMain();
     }
 
     //初始化DataBinding
@@ -69,10 +71,21 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
         activityMainBinding.setMainViewModel(mainViewModel);
     }
 
-    private void setupRecyclerMain(RecyclerView recyclerMain) {
-        recyclerMain.setLayoutManager(new LinearLayoutManager(this));
+    private void setupRecyclerMain() {
+        activityMainBinding.recyclerMain.setLayoutManager(new LinearLayoutManager(this));
         designAdapter = new DesignAdapter();
-        recyclerMain.setAdapter(new SlideInBottomAnimationAdapter(designAdapter));//添加adapter滑动动画
+        activityMainBinding.recyclerMain.setAdapter(new SlideInBottomAnimationAdapter(designAdapter));//添加adapter滑动动画
+        activityMainBinding.recyclerMain.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
     }
 
     @Override
@@ -135,6 +148,8 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
 
         activityMainBinding.layoutMain.setBackgroundResource(background.resourceId);
         activityMainBinding.toolbar.setBackgroundResource(primary.resourceId);
+        activityMainBinding.floatBtnMain.setColorNormalResId(primary.resourceId);
+        activityMainBinding.floatBtnMain.setColorPressedResId(primary.resourceId);
 
         int childCount = activityMainBinding.recyclerMain.getChildCount();
         for (int childIndex = 0; childIndex < childCount; childIndex++) {

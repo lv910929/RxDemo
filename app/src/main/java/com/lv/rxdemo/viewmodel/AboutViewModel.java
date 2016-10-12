@@ -38,8 +38,17 @@ public class AboutViewModel {
 
     public void onClickEvent(View view) {
         switch (view.getId()) {
+            case R.id.button_praise:
+                IntentUtil.redirectWebView(context, "github", Constant.GITHUB_URL);
+                break;
+            case R.id.button_star:
+                IntentUtil.redirectWebView(context, "github", Constant.MY_GITHUB_URL);
+                break;
+            case R.id.button_comment:
+                IntentUtil.redirectWebView(context, "github", Constant.GITHUB_URL);
+                break;
             case R.id.item_github_address:
-                IntentUtil.redirectFinestWebView(context, Constant.GITHUB_URL);
+                IntentUtil.redirectWebView(context, "github", Constant.GITHUB_URL);
                 break;
             case R.id.btn_exit_login:
                 AppUtils.setHasLogin(false);

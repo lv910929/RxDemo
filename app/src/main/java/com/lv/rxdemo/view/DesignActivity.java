@@ -30,8 +30,7 @@ public class DesignActivity extends SwipeBackActivity {
         initData();
         initTheme();
         initDataBinding();
-        initToolBar(designViewModel.getModelHomeApartmentDesignName());
-        setFloatingActionMenu();
+        initUI();
     }
 
     @Override
@@ -49,21 +48,15 @@ public class DesignActivity extends SwipeBackActivity {
         setStatusTransparent();
     }
 
-    //设置toolbar
-    private void initToolBar(String title) {
-        setTitle(title);
-        setSupportActionBar(activityDesignBinding.toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        activityDesignBinding.toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+    @Override
+    protected void initUI() {
+        super.initUI();
+        setToolbar(activityDesignBinding.toolbar, designViewModel.getModelHomeApartmentDesignName());
+        setFloatingActionMenu();
     }
 
     private void setFloatingActionMenu() {
-        activityDesignBinding.floatBtnDesign.setOnClickListener(new View.OnClickListener() {
+        /*activityDesignBinding.floatBtnDesign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isFabOpen) {//说明已经打开
@@ -78,7 +71,7 @@ public class DesignActivity extends SwipeBackActivity {
             public void onClick(View v) {
                 closeMenu();
             }
-        });
+        });*/
     }
 
     //打开菜单

@@ -14,13 +14,11 @@ import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.bigkoo.svprogresshud.SVProgressHUD;
+import com.lv.rxdemo.view.WebViewActivity;
 
 public class MyWebViewClient extends WebViewClient {
 
     private Context context;
-
-    private SVProgressHUD progressHUD;
 
     public MyWebViewClient(Context context) {
         this.context = context;
@@ -50,26 +48,13 @@ public class MyWebViewClient extends WebViewClient {
         if (!view.getSettings().getLoadsImagesAutomatically()) {
             view.getSettings().setLoadsImagesAutomatically(true);
         }
-        if (progressHUD.isShowing()) {
-            progressHUD.dismiss();
-        }
+        Message message = WebViewActivity.handler.obtainMessage(WebViewActivity.LOAD_FINISH_FLAG);
+        message.sendToTarget();
     }
 
     @Override
     public void onLoadResource(WebView view, String url) {
-        if (progressHUD == null) {
-            progressHUD = new SVProgressHUD(context);
-            progressHUD.showWithStatus("加载中...", SVProgressHUD.SVProgressHUDMaskType.Clear);
-        }
-        /*if (url != null && url.startsWith("mailto:")
-                || url.startsWith("geo:") || url.startsWith("tel:")) {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            context.startActivity(intent);
-            view.loadUrl(url);
-        } else if (url.contains("http://www.bdhome.cn/product")) {
-            IntentUtil.redirectToProduct(context, Long.getLong("21474860063"));
-            ((Activity) context).finish();
-        }*/
+
     }
 
     @Override
@@ -83,7 +68,6 @@ public class MyWebViewClient extends WebViewClient {
                                 String description, String failingUrl) {
         // TODO Auto-generated method stub
         super.onReceivedError(view, errorCode, description, failingUrl);
-        //view.loadUrl("file:///android_asset/day1.html");
     }
 
     @Override

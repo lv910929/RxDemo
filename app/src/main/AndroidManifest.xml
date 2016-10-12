@@ -43,11 +43,13 @@
             android:name=".view.AboutActivity"
             android:theme="@style/AppTheme.TransparentActivity" />
         <activity
+            android:name=".view.WebViewActivity"
+            android:theme="@style/AppTheme.TransparentActivity" />
+        <activity
             android:name="com.thefinestartist.finestwebview.FinestWebViewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="sensor"
             android:theme="@style/FinestWebViewTheme.Light" />
-        <activity android:name=".view.WebViewActivity" />
 
     </application>
 

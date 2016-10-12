@@ -161,7 +161,8 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:layout_marginBottom="24dp"
-            android:src="@drawable/ic_thumb_up_24dp"
+            android:onClick="@{designViewModel::onClickEvent}"
+            android:src="@mipmap/ic_action_glasses"
             app:backgroundTint="?attr/colorPrimary"
             app:fabSize="normal" />
 
