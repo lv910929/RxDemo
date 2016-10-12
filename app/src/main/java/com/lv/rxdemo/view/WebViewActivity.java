@@ -3,6 +3,7 @@ package com.lv.rxdemo.view;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.TypedValue;
 import android.view.View;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
@@ -122,7 +124,11 @@ public class WebViewActivity extends SwipeBackActivity implements SwipeRefreshLa
 
     //设置下拉刷新
     private void setRefreshLayout() {
+        TypedValue primary = new TypedValue();//主题色
+        Resources.Theme theme = getTheme();
+        theme.resolveAttribute(R.attr.colorPrimary, primary, true);
         activityWebViewBinding.refreshLayout.setViewGroup(activityWebViewBinding.webView);
+        activityWebViewBinding.refreshLayout.setColorSchemeResources(primary.resourceId);
         activityWebViewBinding.refreshLayout.setOnRefreshListener(this);
         activityWebViewBinding.refreshLayout.post(new Runnable() {
             @Override

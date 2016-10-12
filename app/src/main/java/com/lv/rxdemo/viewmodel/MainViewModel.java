@@ -122,7 +122,7 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
     public void onClickEvent(View view) {
         switch (view.getId()) {
             case R.id.float_btn_main:
-                IntentUtil.redirectFinestWebView(mContext, Constant.GITHUB_URL);
+                IntentUtil.redirectWebView(mContext, "github", Constant.GITHUB_URL);
                 break;
         }
     }

@@ -9,9 +9,13 @@
 新增夜间模式功能
 ###V1.3
 新增类似知乎的FloatingActionButton和FloatingActionMenu
+###V1.4
+新增滑动返回和自定义的webview
 ##ScreenShot
 ![1](https://github.com/lv910929/RxDemo/blob/master/art/sp1.png)![2](https://github.com/lv910929/RxDemo/blob/master/art/sp2.png)![3](https://github.com/lv910929/RxDemo/blob/master/art/sp3.png)
 ![4](https://github.com/lv910929/RxDemo/blob/master/art/sp4.png)![5](https://github.com/lv910929/RxDemo/blob/master/art/sp5.png) 
+![6](https://github.com/lv910929/RxDemo/blob/master/art/sp6.png)![7](https://github.com/lv910929/RxDemo/blob/master/art/sp7.png)
+![8](https://github.com/lv910929/RxDemo/blob/master/art/sp8.png)
 ##GifDemo
 ![1](https://github.com/lv910929/RxDemo/blob/master/art/video_one.gif)
 ![2](https://github.com/lv910929/RxDemo/blob/master/art/video_two.gif)
