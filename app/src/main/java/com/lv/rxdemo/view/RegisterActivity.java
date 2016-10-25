@@ -60,12 +60,12 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.float_button_exit:
-                animateRevealClose();
+                onBackPressed();
                 break;
             case R.id.button_register:
                 if (validateRegister()) {
                     Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
-                    animateRevealClose();
+                    onBackPressed();
                 }
                 break;
         }
@@ -82,41 +82,52 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     //进入动画
     private void ShowEnterAnimation() {
-        Transition transition = TransitionInflater.from(this).inflateTransition(R.transition.fabtransition);
-        getWindow().setSharedElementEnterTransition(transition);
+        Transition transition = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            transition = TransitionInflater.from(this).inflateTransition(R.transition.fabtransition);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setSharedElementEnterTransition(transition);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            transition.addListener(new Transition.TransitionListener() {
+                @Override
+                public void onTransitionStart(Transition transition) {
+                    cardViewRegister.setVisibility(View.GONE);
+                }
 
-        transition.addListener(new Transition.TransitionListener() {
-            @Override
-            public void onTransitionStart(Transition transition) {
-                cardViewRegister.setVisibility(View.GONE);
-            }
+                @Override
+                public void onTransitionEnd(Transition transition) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        transition.removeListener(this);
+                    }
+                    animateRevealShow();
+                }
 
-            @Override
-            public void onTransitionEnd(Transition transition) {
-                transition.removeListener(this);
-                animateRevealShow();
-            }
+                @Override
+                public void onTransitionCancel(Transition transition) {
 
-            @Override
-            public void onTransitionCancel(Transition transition) {
+                }
 
-            }
+                @Override
+                public void onTransitionPause(Transition transition) {
 
-            @Override
-            public void onTransitionPause(Transition transition) {
+                }
 
-            }
+                @Override
+                public void onTransitionResume(Transition transition) {
 
-            @Override
-            public void onTransitionResume(Transition transition) {
+                }
 
-            }
-
-        });
+            });
+        }
     }
 
     public void animateRevealShow() {
-        Animator mAnimator = ViewAnimationUtils.createCircularReveal(cardViewRegister, cardViewRegister.getWidth() / 2, 0, floatButtonExit.getWidth() / 2, cardViewRegister.getHeight());
+        Animator mAnimator = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            mAnimator = ViewAnimationUtils.createCircularReveal(cardViewRegister, cardViewRegister.getWidth() / 2, 0, floatButtonExit.getWidth() / 2, cardViewRegister.getHeight());
+        }
         mAnimator.setDuration(500);
         mAnimator.setInterpolator(new AccelerateInterpolator());
         mAnimator.addListener(new AnimatorListenerAdapter() {
@@ -136,29 +147,35 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     //退出动画
     public void animateRevealClose() {
-        Animator mAnimator = ViewAnimationUtils.createCircularReveal(cardViewRegister, cardViewRegister.getWidth() / 2, 0, cardViewRegister.getHeight(), floatButtonExit.getWidth() / 2);
-        mAnimator.setDuration(500);
-        mAnimator.setInterpolator(new AccelerateInterpolator());
-        mAnimator.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                cardViewRegister.setVisibility(View.INVISIBLE);
-                super.onAnimationEnd(animation);
-                floatButtonExit.setImageResource(R.drawable.plus);
-                RegisterActivity.super.onBackPressed();
-            }
+        Animator mAnimator = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            mAnimator = ViewAnimationUtils.createCircularReveal(cardViewRegister, cardViewRegister.getWidth() / 2, 0, cardViewRegister.getHeight(), floatButtonExit.getWidth() / 2);
 
-            @Override
-            public void onAnimationStart(Animator animation) {
-                super.onAnimationStart(animation);
-            }
-        });
-        mAnimator.start();
+            mAnimator.setDuration(500);
+            mAnimator.setInterpolator(new AccelerateInterpolator());
+            mAnimator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    cardViewRegister.setVisibility(View.INVISIBLE);
+                    super.onAnimationEnd(animation);
+                    floatButtonExit.setImageResource(R.drawable.plus);
+                    RegisterActivity.super.onBackPressed();
+                }
+
+                @Override
+                public void onAnimationStart(Animator animation) {
+                    super.onAnimationStart(animation);
+                }
+            });
+            mAnimator.start();
+        }
     }
 
     @Override
     public void onBackPressed() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            animateRevealClose();
+        }
         super.onBackPressed();
-        animateRevealClose();
     }
 }

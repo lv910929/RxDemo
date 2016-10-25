@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.lv.rxdemo"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 24
         versionCode 5
         versionName "1.4"
@@ -49,4 +49,5 @@ dependencies {
     compile 'jp.wasabeef:recyclerview-animators:2.2.4'
     compile 'com.jude:swipebackhelper:3.1.2'
     compile 'com.jaeger.statusbaruitl:library:1.2.5'
+    compile 'com.jude:easyrecyclerview:4.2.2'
 }

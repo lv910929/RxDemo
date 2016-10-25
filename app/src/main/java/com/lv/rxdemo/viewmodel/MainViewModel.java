@@ -118,6 +118,11 @@ public class MainViewModel implements MainViewModelContact.ViewModel {
         page.loadPage(true);
     }
 
+    //获取更多数据
+    public void loadMoreData() {
+        page.loadPage(false);
+    }
+
     //点击事件
     public void onClickEvent(View view) {
         switch (view.getId()) {

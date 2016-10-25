@@ -1,10 +1,7 @@
 package com.lv.rxdemo.view;
 
-import android.animation.ObjectAnimator;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
-import android.view.View;
-import android.view.animation.AlphaAnimation;
 
 import com.lv.rxdemo.R;
 import com.lv.rxdemo.databinding.ActivityDesignBinding;
@@ -74,34 +71,4 @@ public class DesignActivity extends SwipeBackActivity {
         });*/
     }
 
-    //打开菜单
-    private void openMenu() {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(activityDesignBinding.floatBtnDesign, "rotation", 0, -155, -135);
-        objectAnimator.setDuration(500);
-        objectAnimator.start();
-        activityDesignBinding.textEmpty.setVisibility(View.VISIBLE);
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 0.7f);
-        alphaAnimation.setDuration(500);
-        alphaAnimation.setFillAfter(true);
-        activityDesignBinding.textEmpty.startAnimation(alphaAnimation);
-        isFabOpen = true;
-    }
-
-    //关闭菜单
-    private void closeMenu() {
-        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(activityDesignBinding.floatBtnDesign, "rotation", -135, 20, 0);
-        objectAnimator.setDuration(500);
-        objectAnimator.start();
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0.7f, 0);
-        alphaAnimation.setDuration(500);
-        activityDesignBinding.textEmpty.startAnimation(alphaAnimation);
-        activityDesignBinding.textEmpty.setVisibility(View.GONE);
-        isFabOpen = false;
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        overridePendingTransition(R.anim.slide_in_back, R.anim.slide_out);
-    }
 }

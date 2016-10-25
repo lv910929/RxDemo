@@ -50,8 +50,6 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
 
     private DesignAdapter designAdapter;
 
-    private int mPreviousVisibleItem;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,17 +73,6 @@ public class MainActivity extends BaseActivity implements MainViewModelContact.M
         activityMainBinding.recyclerMain.setLayoutManager(new LinearLayoutManager(this));
         designAdapter = new DesignAdapter();
         activityMainBinding.recyclerMain.setAdapter(new SlideInBottomAnimationAdapter(designAdapter));//添加adapter滑动动画
-        activityMainBinding.recyclerMain.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-            }
-        });
     }
 
     @Override

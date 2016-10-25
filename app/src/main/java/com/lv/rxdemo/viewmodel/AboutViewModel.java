@@ -25,9 +25,6 @@ public class AboutViewModel {
         this.context = context;
     }
 
-    private String githubAddress;
-    private String emailAddress;
-
     public String getGithubAddress() {
         return "github地址";
     }

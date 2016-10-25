@@ -15,7 +15,7 @@
         android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/commBackground"
+        android:background="?attr/colorPrimary"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.AppBarLayout
@@ -36,11 +36,11 @@
 
         </android.support.design.widget.AppBarLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="?attr/commBackground"
             android:gravity="center"
-            android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".view.MainActivity">
 
@@ -59,7 +59,7 @@
                 android:scrollbars="vertical"
                 app:visibility="@{mainViewModel.designList}"
                 tools:listitem="@layout/item_design" />
-        </LinearLayout>
+        </RelativeLayout>
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/float_btn_main"

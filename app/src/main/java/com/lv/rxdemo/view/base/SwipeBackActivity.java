@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.jude.swipbackhelper.SwipeBackHelper;
+import com.lv.rxdemo.R;
 
 /**
  * Created by Lv on 2016/10/11.
@@ -43,6 +44,12 @@ public class SwipeBackActivity extends BaseActivity {
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         SwipeBackHelper.onPostCreate(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.slide_in_back, R.anim.slide_out);
     }
 
     @Override
