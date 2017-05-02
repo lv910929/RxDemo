@@ -62,7 +62,7 @@ public class LoginActivity extends BaseActivity implements LoginViewModelContact
     //验证登录表单
     public boolean validateLogin() {
         boolean flag = true;
-        if (!activityLoginBinding.validateTextPassword.validate()) flag = false;
+        if (!activityLoginBinding.validateTextPhone.validate()) flag = false;
         if (!activityLoginBinding.validateTextPassword.validate()) flag = false;
         return flag;
     }
